@@ -15,16 +15,6 @@ public class AdventSolver {
         System.out.println(multiply(mulVals2(fileData)));
     }
 
-    public static boolean doOrDont (String check){
-        if (check.contains("do()")){
-            return true;
-        }
-        if (check.contains("don't()")){
-            return false;
-        }
-        return true;
-    }
-
     public static int multiply (ArrayList<String> mulVals){
         int[] nums = new int[mulVals.size()];
         for (int i = 0; i<mulVals.size();i++){
