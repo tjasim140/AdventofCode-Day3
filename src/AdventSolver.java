@@ -12,6 +12,7 @@ public class AdventSolver {
         System.out.println(multiply(mulVals(fileData)));
 
         //Part 2:
+        System.out.println(multiply(mulVals2(fileData)));
     }
 
     public static boolean doOrDont (String check){
@@ -73,24 +74,30 @@ public class AdventSolver {
     public static ArrayList<String> mulVals2 (ArrayList<String> fileData){
         String data = fileData.getFirst();
         ArrayList<String> muls = new ArrayList<String>();
+        boolean add = true;
         for (int i = 0; i<data.length();i++) {
-            if (data.startsWith("mul(", i) && data.charAt(i + 7) == ')') {
+            if (data.startsWith("do()", i)){
+                add = true;
+            }else if(data.startsWith("don't()", i)){
+                add = false;
+            }
+            if (data.startsWith("mul(", i) && data.charAt(i + 7) == ')' && add) {
                 if (data.substring(i, i + 8).contains(",")) {
                     muls.add(data.substring(i, i + 8));
                 }
-            } else if (data.startsWith("mul(", i) && data.charAt(i + 8) == ')') {
+            } else if (data.startsWith("mul(", i) && data.charAt(i + 8) == ')' && add) {
                 if (data.substring(i, i + 9).contains(",")) {
                     muls.add(data.substring(i, i + 9));
                 }
-            } else if (data.startsWith("mul(", i) && data.charAt(i + 9) == ')') {
+            } else if (data.startsWith("mul(", i) && data.charAt(i + 9) == ')'&& add) {
                 if (data.substring(i, i + 10).contains(",")) {
                     muls.add(data.substring(i, i + 10));
                 }
-            } else if (data.startsWith("mul(", i) && data.charAt(i + 10) == ')') {
+            } else if (data.startsWith("mul(", i) && data.charAt(i + 10) == ')'&& add) {
                 if (data.substring(i, i + 11).contains(",")) {
                     muls.add(data.substring(i, i + 11));
                 }
-            } else if (data.startsWith("mul(", i) && data.charAt(i + 11) == ')') {
+            } else if (data.startsWith("mul(", i) && data.charAt(i + 11) == ')'&& add) {
                 if (data.substring(i, i + 12).contains(",")) {
                     muls.add(data.substring(i, i + 12));
                 }
